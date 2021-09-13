@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace TCPsim_client
+namespace TCPsimulation_client
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            var client = new TCPSim_client();
+
+            client.Start();
         }
     }
 }

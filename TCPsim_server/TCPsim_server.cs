@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Linq;
 
-namespace TCPsim_server
+namespace TCPsimulation_server
 {
     class TCPSim_server
     {

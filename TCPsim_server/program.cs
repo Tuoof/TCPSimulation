@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace TCPsim_server
+namespace TCPsimulation_server
 {
     class Program
     {
         static public void Main()
         {
-            var socket = new TCPSim_server();
+            var server = new TCPSim_server();
 
-            socket.Start();
+            server.Start();
         }
     }
 }

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "TCPsim_client/1.0.0": {
+        "runtime": {
+          "TCPsim_client.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TCPsim_client/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
