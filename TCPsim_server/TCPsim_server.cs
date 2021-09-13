@@ -14,7 +14,7 @@ namespace TCPsim_server
         static Socket tcpSocket;
 
         static Int32 port = 5000;
-        static IPAddress localAddress = IPAddress.Parse("127.0.0.1");
+        static IPAddress localAddress = IPAddress.Parse(GetIpAddress());
 
         public void Start()
         {
@@ -44,6 +44,24 @@ namespace TCPsim_server
             {
                 Console.WriteLine(e.ToString());
             }
+        }
+
+        public static string GetIpAddress()
+        {
+            IPHostEntry localhost;
+            string localAddress = "";
+            // Get the hostname of the local machine
+            localhost = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress address in localhost.AddressList)
+            {
+                // Look for the IPv4 address of the local machine
+                if (address.AddressFamily.ToString() == "InterNetwork")
+                {
+                    // Convert the IP address to a string and return it
+                    localAddress = address.ToString();
+                }
+            }
+            return localAddress;
         }
 
         /*public void writeMessage(string chat)
