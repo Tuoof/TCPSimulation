@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-using System.Threading;
 using System.Linq;
 
 namespace TCPsimulation_server
@@ -22,18 +21,20 @@ namespace TCPsimulation_server
             Listener.Start();
             Console.WriteLine("Server listening on " + Listener.LocalEndpoint);
 
-            serverSocket = Listener.AcceptTcpClient();
-            Console.WriteLine("Client Accepted...!");          
-
             try
             {
-                StreamReader reader = new StreamReader(serverSocket.GetStream());
-                StreamWriter writer = new StreamWriter(serverSocket.GetStream());
+                serverSocket = Listener.AcceptTcpClient();
+                Console.WriteLine("Client Accepted...!");
+
+                //StreamReader reader = new StreamReader(serverSocket.GetStream());
+                //StreamWriter writer = new StreamWriter(serverSocket.GetStream());
 
                 while (true)
                 {
-                    string message = reader.ReadLine();
-                   
+                    ClientListener(serverSocket);
+                    //string message = reader.ReadLine();
+                    //Console.WriteLine(message);
+
                 }
             }
             catch (Exception e)
@@ -42,6 +43,42 @@ namespace TCPsimulation_server
             }
         }
 
+        public void ClientListener(object argument)
+        {
+            TcpClient tcpClient = (TcpClient)argument;
+            StreamReader reader = new StreamReader(tcpClient.GetStream());
+            StreamWriter writer = new StreamWriter(tcpClient.GetStream());
+
+            Console.WriteLine("Client connected...!");
+
+            try
+            {
+                while (true)
+                {
+                    string message = reader.ReadLine();
+                    string chat = "client : " + message;
+                    Console.WriteLine(chat);
+
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.ToString());
+                Console.WriteLine(" ");
+            }
+            finally
+            {
+                Console.WriteLine("Client Disconnected...");
+
+                    serverSocket.Client.Disconnect(true);
+                    serverSocket.Client.Close();
+                    Console.WriteLine("Server Closed...");
+                    System.Environment.Exit(1);
+
+            }
+
+        }
+        
         public static string GetIpAddress()
         {
             IPHostEntry localhost;
