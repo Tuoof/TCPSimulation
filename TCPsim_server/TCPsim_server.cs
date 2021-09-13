@@ -11,7 +11,7 @@ namespace TCPsimulation_server
     class TCPSim_server
     {
         static TcpListener Listener;
-        static Socket tcpSocket;
+        static TcpClient serverSocket;
 
         static Int32 port = 5000;
         static IPAddress localAddress = IPAddress.Parse(GetIpAddress());
@@ -22,22 +22,18 @@ namespace TCPsimulation_server
             Listener.Start();
             Console.WriteLine("Server listening on " + Listener.LocalEndpoint);
 
-            tcpSocket = Listener.AcceptSocket();
-            Console.WriteLine("Client Accepted...!");
-            
-            byte[] receivedBytes = new byte[1500];
+            serverSocket = Listener.AcceptTcpClient();
+            Console.WriteLine("Client Accepted...!");          
 
             try
             {
+                StreamReader reader = new StreamReader(serverSocket.GetStream());
+                StreamWriter writer = new StreamWriter(serverSocket.GetStream());
+
                 while (true)
                 {
-                    int receivedSize = tcpSocket.Receive(receivedBytes);
-
-                    for (int i = 0; i < receivedSize; i++)
-                    {
-                        // Print each character to the console window
-                        Console.Write(Convert.ToChar(receivedBytes[i]));
-                    }
+                    string message = reader.ReadLine();
+                   
                 }
             }
             catch (Exception e)

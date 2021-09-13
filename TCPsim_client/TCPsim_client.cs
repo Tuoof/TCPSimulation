@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Net.Sockets;
+using System.Net;
 
 namespace TCPsimulation_client
 {
     class TCPSim_client
     {
+        static IPAddress localAddress = IPAddress.Parse(GetIpAddress());
+
         public void Start()
         {
             try
@@ -13,7 +16,7 @@ namespace TCPsimulation_client
                 //this computer  
                 Console.WriteLine(" Client Started ");
                 TcpClient clientSocket = new TcpClient();
-                clientSocket.Connect ("127.0.0.1", 5000);
+                clientSocket.Connect (localAddress, 5000);
                 Console.WriteLine(" Server Connected ");
 
                 StreamWriter writer = new StreamWriter(clientSocket.GetStream());
@@ -36,6 +39,24 @@ namespace TCPsimulation_client
             Console.WriteLine("Press any key to exit from client program");
             
             Console.ReadKey();
+        }
+
+        public static string GetIpAddress()
+        {
+            IPHostEntry localhost;
+            string localAddress = "";
+            // Get the hostname of the local machine
+            localhost = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress address in localhost.AddressList)
+            {
+                // Look for the IPv4 address of the local machine
+                if (address.AddressFamily.ToString() == "InterNetwork")
+                {
+                    // Convert the IP address to a string and return it
+                    localAddress = address.ToString();
+                }
+            }
+            return localAddress;
         }
     }
 }
