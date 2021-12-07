@@ -13,3 +13,4 @@ C:\GitHub\TCPSimulation\TCPsim_client\obj\Debug\net5.0\TCPsim_client.dll
 C:\GitHub\TCPSimulation\TCPsim_client\obj\Debug\net5.0\ref\TCPsim_client.dll
 C:\GitHub\TCPSimulation\TCPsim_client\obj\Debug\net5.0\TCPsim_client.pdb
 C:\GitHub\TCPSimulation\TCPsim_client\obj\Debug\net5.0\TCPsim_client.genruntimeconfig.cache
+C:\GitHub\TCPSimulation\TCPsim_client\obj\Debug\net5.0\TCPsim_client.csproj.AssemblyReference.cache

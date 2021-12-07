@@ -5,7 +5,6 @@ C:\GitHub\TCPSimulation\TCPsim_server\bin\Debug\net5.0\TCPsim_server.runtimeconf
 C:\GitHub\TCPSimulation\TCPsim_server\bin\Debug\net5.0\TCPsim_server.dll
 C:\GitHub\TCPSimulation\TCPsim_server\bin\Debug\net5.0\ref\TCPsim_server.dll
 C:\GitHub\TCPSimulation\TCPsim_server\bin\Debug\net5.0\TCPsim_server.pdb
-C:\GitHub\TCPSimulation\TCPsim_server\obj\Debug\net5.0\TCPsim_server.csproj.AssemblyReference.cache
 C:\GitHub\TCPSimulation\TCPsim_server\obj\Debug\net5.0\TCPsim_server.GeneratedMSBuildEditorConfig.editorconfig
 C:\GitHub\TCPSimulation\TCPsim_server\obj\Debug\net5.0\TCPsim_server.AssemblyInfoInputs.cache
 C:\GitHub\TCPSimulation\TCPsim_server\obj\Debug\net5.0\TCPsim_server.AssemblyInfo.cs
